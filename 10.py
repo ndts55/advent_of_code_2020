@@ -18,7 +18,7 @@ print(diffs.count(1) * diffs.count(3))
 def count_combinations(joltages: List[int], device_joltage: int, output_joltage: int) -> int:
     @lru_cache(maxsize=None)
     def f_rec(joltage: int) -> int:
-        # if we're already within range of dj return 1
+        # if we're already within range of device_joltage return 1
         if (device_joltage - joltage) <= 3:
             return 1
         return sum(f_rec(x) for x in joltages if 0 < (x - joltage) <= 3)
